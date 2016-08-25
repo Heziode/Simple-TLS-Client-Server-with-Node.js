@@ -1,0 +1,21 @@
+{
+  "name": "simple-tls-client-server",
+  "version": "1.0.0",
+  "description": "This project it's just a simple example of client/server app with Node.js",
+  "main": "tls-server.js",
+  "repository": {
+    "type": "git",
+    "url": "simple-tls-client-server"
+  },
+  "keywords": [
+    "Node.js",
+    "client",
+    "server",
+    "tls",
+    "ssl",
+    "secure",
+    "certificate"
+  ],
+  "author": "Heziode <heziode.official@gmail.com>",
+  "license": "MIT"
+}
