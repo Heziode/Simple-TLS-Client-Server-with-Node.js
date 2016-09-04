@@ -1,4 +1,4 @@
-# Simble TLS Client/Server with Node.js
+# Simple TLS Client/Server with Node.js
 
 This project it's just a simple example of client/server app with Node.js
 
