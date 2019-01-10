@@ -10,3 +10,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 * improve cert generation scripts ([0ca5e52](https://github.com/Heziode/Simple-TLS-Client-Server-with-Node.js/commit/0ca5e52))
 * update client and server ([af56897](https://github.com/Heziode/Simple-TLS-Client-Server-with-Node.js/commit/af56897))
+
+<a name="1.0.0"></a>
+# 1.0.0 (2016-08-25)
+
+
+### Features
+
+* Initial commit ([29421a4](https://github.com/Heziode/Simple-TLS-Client-Server-with-Node.js/commit/29421a4))
+
