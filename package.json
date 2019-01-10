@@ -5,7 +5,7 @@
   "main": "tls-server.js",
   "repository": {
     "type": "git",
-    "url": "simple-tls-client-server"
+    "url": "https://github.com/Heziode/Simple-TLS-Client-Server-with-Node.js"
   },
   "keywords": [
     "Node.js",
@@ -14,7 +14,9 @@
     "tls",
     "ssl",
     "secure",
-    "certificate"
+    "certificate",
+    "generate",
+    "self-signed"
   ],
   "author": "Heziode <heziode.official@gmail.com>",
   "license": "MIT"
