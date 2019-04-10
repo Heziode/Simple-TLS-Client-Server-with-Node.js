@@ -167,10 +167,10 @@ echo -e "##################\n"
 
 echo -e "# CA\n"
 
-openssl genrsa -des3 -passout pass:$PASSWORD -out $PATH_TMP/ca.key $RSABITS
+openssl genrsa -des3 -passout pass:$PASSWORD -out $PATH_CA/ca.key $RSABITS
 
 # Create Authority Certificate
-openssl req -new -x509 -days $EXPIREDAYS -key $PATH_TMP/ca.key -out $PATH_CA/ca.crt -passin pass:$PASSWORD -subj "/C=$GK_C/ST=$GK_ST/L=$GK_L/O=$GK_O/OU=$GK_OU/CN=.$GK_unstructuredName$GK_emailAddress$GK_subjectAltName$OTHER_FIELDS"
+openssl req -new -x509 -days $EXPIREDAYS -key $PATH_CA/ca.key -out $PATH_CA/ca.crt -passin pass:$PASSWORD -subj "/C=$GK_C/ST=$GK_ST/L=$GK_L/O=$GK_O/OU=$GK_OU/CN=.$GK_unstructuredName$GK_emailAddress$GK_subjectAltName$OTHER_FIELDS"
 
 ##########
 # SERVER #
@@ -185,7 +185,7 @@ openssl genrsa -out $PATH_SERVER/server.key $RSABITS
 openssl req -new -key $PATH_SERVER/server.key -out $PATH_TMP/server.csr -passout pass:$PASSWORD -subj "/C=$GK_C/ST=$GK_ST/L=$GK_L/O=$GK_O/OU=$GK_OU/CN=$GK_CN$GK_unstructuredName$GK_emailAddress$GK_subjectAltName$OTHER_FIELDS"
 
 # Sign server cert with self-signed cert
-openssl x509 -req -days $EXPIREDAYS -passin pass:$PASSWORD -in $PATH_TMP/server.csr -CA $PATH_CA/ca.crt -CAkey $PATH_TMP/ca.key -set_serial 01 -out $PATH_SERVER/server.crt
+openssl x509 -req -days $EXPIREDAYS -passin pass:$PASSWORD -in $PATH_TMP/server.csr -CA $PATH_CA/ca.crt -CAkey $PATH_CA/ca.key -set_serial 01 -out $PATH_SERVER/server.crt
 
 ##########
 # CLIENT #
@@ -197,7 +197,7 @@ openssl genrsa -out $PATH_CLIENT/client.key $RSABITS
 
 openssl req -new -key $PATH_CLIENT/client.key -out $PATH_TMP/client.csr -passout pass:$PASSWORD -subj "/C=$GK_C/ST=$GK_ST/L=$GK_L/O=$GK_O/OU=$GK_OU/CN=CLIENT$GK_unstructuredName$GK_emailAddress$GK_subjectAltName$OTHER_FIELDS"
 
-openssl x509 -req -days 365 -passin pass:$PASSWORD -in $PATH_TMP/client.csr -CA $PATH_CA/ca.crt -CAkey $PATH_TMP/ca.key -set_serial 01 -out $PATH_CLIENT/client.crt
+openssl x509 -req -days 365 -passin pass:$PASSWORD -in $PATH_TMP/client.csr -CA $PATH_CA/ca.crt -CAkey $PATH_CA/ca.key -set_serial 01 -out $PATH_CLIENT/client.crt
 
 # Clean tmp dir
 
