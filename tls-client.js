@@ -22,7 +22,7 @@ const options = {
 const socket = tls.connect(options, () => {
   console.log('client connected', socket.authorized ? 'authorized' : 'unauthorized');
   if (!socket.authorized) {
-    console.log("Error: ", client.authorizationError());
+    console.log("Error: ", socket.authorizationError());
     socket.end();
   }
 })
